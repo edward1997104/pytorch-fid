@@ -41,6 +41,7 @@ import torchvision.transforms as TF
 from PIL import Image
 from scipy import linalg
 from torch.nn.functional import adaptive_avg_pool2d
+import pandas
 
 try:
     from tqdm import tqdm
@@ -315,6 +316,13 @@ def main():
                                           device,
                                           args.dims,
                                           num_workers)
+
+
+    # save to csv
+    results = []
+    results.append(('fid', fid_value))
+    df = pd.DataFrame(results, columns=['ID', 'Value'])
+    df.to_csv(f'{args.path[1]}/fid.csv', index=False)
     print('FID: ', fid_value)
 
 
