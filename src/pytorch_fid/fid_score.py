@@ -41,7 +41,7 @@ import torchvision.transforms as TF
 from PIL import Image
 from scipy import linalg
 from torch.nn.functional import adaptive_avg_pool2d
-import pandas
+import pandas as pd
 
 try:
     from tqdm import tqdm
