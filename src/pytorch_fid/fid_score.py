@@ -322,7 +322,9 @@ def main():
     results = []
     results.append(('fid', fid_value))
     df = pd.DataFrame(results, columns=['ID', 'Value'])
-    df.to_csv(f'{os.path.dirname(args.path[1])}/fid.csv', index=False)
+    save_path = f'{os.path.dirname(args.path[1])}/fid.csv'
+    df.to_csv(save_path, index=False)
+    print("Saved to ", save_path)
     print('FID: ', fid_value)
 
 
